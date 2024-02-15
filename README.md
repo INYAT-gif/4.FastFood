@@ -195,3 +195,10 @@ Frontend (HTML + CSS + Bootstrap):
 </html>
 C:\Users\inaya\OneDrive\Skrivbord\Fastfood app\Fastfood-app\src\main\java\org\example\FoodItem.java:67:8
 java: class FastFoodApp is public, should be declared in a file named FastFoodApp.java
+The error message you provided indicates that there's a mismatch between the class name and the file name. In Java, each public class should be declared in its own file with the name matching the class name.
+
+In your case, it seems like you have a class named FastFoodApp but it's not in a file named FastFoodApp.java. Instead, it's probably in a file named something else, perhaps FoodItem.java.
+
+To fix this error, you need to ensure that the FastFoodApp class is in a file named FastFoodApp.java. You can either rename the existing file to match the class name or create a new file named FastFoodApp.java and move the class definition into it.
+
+Once the class is in a file named FastFoodApp.java, the error should be resolved.
