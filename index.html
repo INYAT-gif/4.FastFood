@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom CSS here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fast Food App</h1>
+        <h2>Menu:</h2>
+        <ul id="menu-list" class="list-group">
+            <!-- Menu items will be dynamically added here -->
+        </ul>
+        <h2>Order Summary:</h2>
+        <ul id="order-list" class="list-group">
+            <!-- Order items will be dynamically added here -->
+        </ul>
+        <h3>Total: <span id="total"></span></h3>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Define menu items
+        const menuItems = [
+            { name: "Burger", price: 5.99 },
+            { name: "Fries", price: 2.99 },
+            { name: "Drink", price: 1.99 }
+        ];
+
+        // Function to display menu
+        function displayMenu() {
+            const menuList = document.getElementById("menu-list");
+            menuList.innerHTML = "";
+            menuItems.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("list-group-item");
+                listItem.textContent = `${index + 1}. ${item.name} - $${item.price}`;
+                menuList.appendChild(listItem);
+            });
+        }
+
+        // Initialize menu display
+        displayMenu();
+
+        // Define order array
+        let orderItems = [];
+
+        // Function to display order summary
+        function displayOrder() {
+            const orderList = document.getElementById("order-list");
+            orderList.innerHTML = "";
+            let total = 0;
+            orderItems.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("list-group-item");
+                listItem.textContent = `${index + 1}. ${item.name} - $${item.price}`;
+                orderList.appendChild(listItem);
+                total += item.price;
+            });
+            document.getElementById("total").textContent = "$" + total.toFixed(2);
+        }
+
+        // Event listener for menu item clicks
+        document.getElementById("menu-list").addEventListener("click", function(event) {
+            const index = parseInt(event.target.textContent.split(".")[0]) - 1;
+            if (!isNaN(index) && index >= 0 && index < menuItems.length) {
+                orderItems.push(menuItems[index]);
+                displayOrder();
+            }
+        });
+    </script>
+</body>
+</html>
