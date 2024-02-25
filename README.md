@@ -1,9 +1,4 @@
 # FastFood-App
-/* index.html link:
-
-file:///C:/Users/inaya/OneDrive/Skrivbord/Fastfood-app/index.html
-*/
-
 /* basic functionalities including displaying the menu, adding items to the order, and displaying the order summary:
 
 import java.util.ArrayList;
